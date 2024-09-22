@@ -1,0 +1,78 @@
+/* _typography.scss */
+@import '../utils/variables';
+
+html {
+  font-size: 16px; /* Базовый размер шрифта */
+  line-height: 1.5; /* Межстрочный интервал */
+  font-family: 'Arial', sans-serif; /* Основной шрифт */
+  color: $neutral; /* Основной цвет текста */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: $neutral;
+}
+
+h1 {
+  font-size: 2.5rem; /* Примерно 40px */
+}
+
+h2 {
+  font-size: 2rem; /* Примерно 32px */
+}
+
+h3 {
+  font-size: 1.75rem; /* Примерно 28px */
+}
+
+h4 {
+  font-size: 1.5rem; /* Примерно 24px */
+}
+
+h5 {
+  font-size: 1.25rem; /* Примерно 20px */
+}
+
+h6 {
+  font-size: 1rem; /* Примерно 16px */
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem; /* Примерно 16px */
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+ul, ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+ul li, ol li {
+  margin-bottom: 0.5rem;
+}
+
+blockquote {
+  font-style: italic;
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  border-left: 4px solid #ccc;
+}
+
+code, pre {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875rem;
+  background-color: #f8f9fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}

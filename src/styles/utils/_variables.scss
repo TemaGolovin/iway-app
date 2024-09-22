@@ -1,0 +1,28 @@
+/* _variables.scss */
+
+// colors
+$primary: #f38383;
+$secondary: #4dabf7;
+$accent: #f7b32b;
+$neutral: #d6d6d6;
+$base-100: #111827;
+$base-200: #1f2937; 
+$base-300: #374151;
+$info: #3b82f6;
+$success: #22c55e;
+$warning: #fbbf24;
+$error: #e11d48; 
+
+:root {
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --accent: #{$accent};
+  --neutral: #{$neutral};
+  --base-100: #{$base-100};
+  --base-200: #{$base-200};
+  --base-300: #{$base-300};
+  --info: #{$info};
+  --success: #{$success};
+  --warning: #{$warning};
+  --error: #{$error};
+}
