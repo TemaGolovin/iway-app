@@ -21,13 +21,12 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/transnextgen/": {
-        target: "http://transstage1.iwayex.com",
+      "/transnextgen": {
+        target: "https://transstage1.iwayex.com",
         changeOrigin: true,
-      }
-    },
-    // proxy: {
-    //   "/transnextgen": "http://transstage1.iwayex.com/transnextgen"
-    // }
-  }
-});
+        secure: false
+      },
+    }
+  },
+}
+);

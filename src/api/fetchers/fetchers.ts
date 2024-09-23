@@ -7,6 +7,6 @@ export const getTripsList = async () => {
 
 
 export const login = async (loginData: {login: string, password: string}) => {
-  const { data } = await axiosInstance.post("/auth/login", loginData);
+  const { data } = await axiosInstance.post<{ result: { token: string } }>("/auth/login", loginData);
   return data;
 };

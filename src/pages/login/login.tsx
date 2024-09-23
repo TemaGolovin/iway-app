@@ -3,7 +3,8 @@ import { ChangeEvent } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 import { Input, InputPassword } from "@/shared";
-import { login } from "@/api/fetchers/fetchers";
+import { useAppDispatch } from "@/store";
+import { loginUser } from "@/store/slices";
 
 import styles from "./login.module.scss";
 
@@ -17,11 +18,10 @@ export const Login = () => {
     mode: "onBlur"
   });
 
+  const dispatch = useAppDispatch();
+
   const onSubmit = async (data: { login: string, password: string }) => {
-    const a = await login(data);
-
-    console.log(a);
-
+    dispatch(loginUser(data));
   };
 
   return (

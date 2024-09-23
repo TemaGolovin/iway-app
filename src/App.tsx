@@ -6,13 +6,18 @@ import styles from "./app.module.scss";
 import { store } from "./store";
 import { themeConfig } from "./lib";
 import { router } from "./routes";
+import { InitAppContainer } from "./components";
 
-export const App = () => (
-  <StoreProvider store={ store }>
-    <ConfigProvider theme={ themeConfig }>
-      <div className={ styles.app_container }>
-        <RouterProvider router={ router } />
-      </div>
-    </ConfigProvider>
-  </StoreProvider>
-);
+export const App = () => {
+
+  return (
+    <StoreProvider store={ store }>
+      <ConfigProvider theme={ themeConfig }>
+        <div className={ styles.app_container }>
+          <InitAppContainer>
+            <RouterProvider router={ router } />
+          </InitAppContainer>
+        </div>
+      </ConfigProvider>
+    </StoreProvider>
+  );};
