@@ -10,4 +10,24 @@ export default defineConfig({
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import "src/styles/utils/variables.scss";
+        `
+      }
+    }
+  },
+  server: {
+    proxy: {
+      "/transnextgen/": {
+        target: "http://transstage1.iwayex.com",
+        changeOrigin: true,
+      }
+    },
+    // proxy: {
+    //   "/transnextgen": "http://transstage1.iwayex.com/transnextgen"
+    // }
+  }
 });

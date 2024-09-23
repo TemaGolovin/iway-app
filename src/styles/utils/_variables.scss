@@ -11,7 +11,19 @@ $base-300: #374151;
 $info: #3b82f6;
 $success: #22c55e;
 $warning: #fbbf24;
-$error: #e11d48; 
+$error: #e11d48;
+
+// shadows
+$large_shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+$small_shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+
+//brackpoints
+$xs: 480px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px; 
+$xxl: 1400px;
 
 :root {
   --primary: #{$primary};
