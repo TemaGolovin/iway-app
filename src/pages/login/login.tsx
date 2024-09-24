@@ -11,6 +11,11 @@ import styles from "./login.module.scss";
 
 export const Login = () => {
 
+  const navigate = useNavigate();
+
+  const dispatch = useAppDispatch();
+  const { loading, error: responseError } = useAppSelector((state) => state.auth);
+
   const { control, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       login: "",
@@ -18,15 +23,11 @@ export const Login = () => {
     },
     mode: "onSubmit",
   });
-  const navigate = useNavigate();
-
-  const dispatch = useAppDispatch();
-  const { loading, error: responseError, user } = useAppSelector((state) => state.auth);
 
   const onSubmit = async (data: { login: string, password: string }) => {
-    dispatch(loginUser(data));
+    const authAsyncThunkResult = await dispatch(loginUser(data));
 
-    if (user?.token) {
+    if (authAsyncThunkResult?.type === "auth/loginUser/fulfilled") {
       navigate("/");
     }
   };
