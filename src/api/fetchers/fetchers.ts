@@ -1,7 +1,8 @@
+import { TripsResponse } from "../api-types";
 import { axiosInstance } from "../instance";
 
 export const getTripsList = async () => {
-  const { data } = await axiosInstance.get("/orders/trips");
+  const { data } = await axiosInstance.get<TripsResponse>("/orders/trips");
   return data;
 };
 
