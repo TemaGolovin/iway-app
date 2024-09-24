@@ -1,10 +1,11 @@
 import { Button } from "antd";
 import { ChangeEvent } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
 
 import { Input, InputPassword } from "@/shared";
-import { useAppDispatch } from "@/store";
-import { loginUser } from "@/store/slices";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { loginUser, setError } from "@/store/slices";
 
 import styles from "./login.module.scss";
 
@@ -15,13 +16,19 @@ export const Login = () => {
       login: "",
       password: "",
     },
-    mode: "onBlur"
+    mode: "onSubmit",
   });
+  const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
+  const { loading, error: responseError, user } = useAppSelector((state) => state.auth);
 
   const onSubmit = async (data: { login: string, password: string }) => {
     dispatch(loginUser(data));
+
+    if (user?.token) {
+      navigate("/");
+    }
   };
 
   return (
@@ -44,8 +51,13 @@ export const Login = () => {
               placeholder="Введите логин"
               inputRef={ field.ref }
               isError={ !!errors?.login }
-              onChange={ (e: ChangeEvent<HTMLInputElement>) => field.onChange(e) }
               onBlur={ field.onBlur }
+              onChange={ (e: ChangeEvent<HTMLInputElement>) => {
+                field.onChange(e);
+                if (responseError) {
+                  dispatch(setError({ error: "" }));
+                }
+              } }
             />
           ) }
         />
@@ -67,15 +79,28 @@ export const Login = () => {
               placeholder="Введите пароль"
               inputRef={ field.ref }
               isError={ !!errors.password }
-              onChange={ (e: ChangeEvent<HTMLInputElement>) => field.onChange(e) }
               onBlur={ field.onBlur }
+              onChange={ (e: ChangeEvent<HTMLInputElement>) => {
+                field.onChange(e);
+                if (responseError) {
+                  dispatch(setError({ error: "" }));
+                }
+              } }
             />
           ) }
         />
-        <p className={ styles.text_error }>{ errors?.password?.message || "" }</p>
+        <p className={ styles.text_error }>{ errors?.password?.message ? errors?.password?.message : responseError || "" }</p>
 
         <div className={ styles.card__button_wrapper }>
-          <Button size="large" className={ styles.card__button } htmlType="submit">Войти</Button>
+          <Button
+            size="large"
+            className={ styles.card__button }
+            htmlType="submit"
+            loading={ loading }
+            disabled={ loading || !!responseError || !!errors?.login || !!errors?.password }
+          >
+            Войти
+          </Button>
         </div>
       </form>
     </div>
