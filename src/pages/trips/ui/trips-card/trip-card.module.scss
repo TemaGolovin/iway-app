@@ -1,0 +1,55 @@
+.card {
+  margin: 0 0 40px;
+  border: 1px solid $base-300;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: $small_shadow;
+}
+
+.points__wrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.start__point {
+  color: $primary;
+  max-width: 35%;
+}
+
+.point_date {
+  opacity: 0.5;
+  font-size: 30px;
+  padding: 0;
+
+}
+
+.finish__point {
+  color: $secondary;
+  font-size: 16px;
+  padding: 0;
+  max-width: 35%;
+}
+
+.location__point {
+  padding: 0;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.top_info__wrapper {
+  .trip__status {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+
+  .strong {
+    font-weight: bold;
+  }
+}
+

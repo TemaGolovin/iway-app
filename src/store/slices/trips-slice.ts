@@ -1,24 +1,25 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import { getTripsList } from "@/api/fetchers";
+import { TripsResult } from "@/api/api-types";
 
 
 export const fetchTrips = createAsyncThunk(
   "trips/fetchTrips",
   async () => {
     const response = await getTripsList();
-    return response.data;
+    return response;
   }
 );
 
 interface TripsState {
-  trips: any[]; // TODO: fix type
+  trips: TripsResult | null;
   loading: boolean;
   error: string | null;
 }
 
 const initialState: TripsState = {
-  trips: [],
+  trips: null,
   loading: false,
   error: null,
 };
@@ -35,7 +36,7 @@ const tripsSlice = createSlice({
       })
       .addCase(fetchTrips.fulfilled, (state, action) => {
         state.loading = false;
-        state.trips = action.payload;
+        state.trips = action.payload.result;
       })
       .addCase(fetchTrips.rejected, (state, action) => {
         state.loading = false;

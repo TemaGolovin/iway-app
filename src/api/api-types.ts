@@ -1,10 +1,10 @@
 export interface TripsResponse {
-  result:   Result;
+  result:   TripsResult;
   error:    null;
   "x-uuid": string;
 }
 
-export interface Result {
+export interface TripsResult {
   orders:    Order[];
   page_data: PageData;
 }
