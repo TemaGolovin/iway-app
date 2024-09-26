@@ -6,8 +6,8 @@ import { TripsResult } from "@/api/api-types";
 
 export const fetchTrips = createAsyncThunk(
   "trips/fetchTrips",
-  async () => {
-    const response = await getTripsList();
+  async (params: {page: number, names?: string, emails?: string})=> {
+    const response = await getTripsList(params);
     return response;
   }
 );

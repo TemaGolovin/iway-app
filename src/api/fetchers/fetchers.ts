@@ -1,8 +1,10 @@
 import { TripsResponse } from "../api-types";
 import { axiosInstance } from "../instance";
 
-export const getTripsList = async () => {
-  const { data } = await axiosInstance.get<TripsResponse>("/orders/trips");
+export const getTripsList = async ({ page, names, emails }: {page: number, names?: string, emails?: string}) => {
+  const { data } = await axiosInstance.get<TripsResponse>("/orders/trips", {
+    params: { page, names, emails }
+  });
   return data;
 };
 
