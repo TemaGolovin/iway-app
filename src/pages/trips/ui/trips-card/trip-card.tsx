@@ -23,7 +23,7 @@ export const TripCard: FC<TripCardProps> = ({ trip }) => {
           <section key={ trip.order_id }>
             <div className={ styles.top_info__wrapper }>
               <div className={ styles.trip__status }>
-                Статус обработки: <strong className={ styles.strong }>{ processingStatus[trip.status] }</strong>
+                Статус заказа: <strong className={ styles.strong }>{ processingStatus[trip.status] }</strong>
               </div>
               <div className={ styles.trip__status }>
                 Количество пассажиров: <strong className={ styles.strong }>{ trip.passengers_number }</strong>

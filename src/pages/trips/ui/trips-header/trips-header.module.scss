@@ -1,7 +1,12 @@
 .header__wrapper {
   text-align: start;
   display: flex;
-  gap: 40px;
+  gap: 0;
+  flex-wrap: wrap;
+
+  @media (min-width: $md) {
+    gap: 40px;
+  }
 }
 
 .strong {

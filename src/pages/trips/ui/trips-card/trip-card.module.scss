@@ -11,34 +11,51 @@
   gap: 10px;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  @media (min-width: $md) {
+    flex-direction: row;
+  }
 }
 
 .start__point {
   color: $primary;
-  max-width: 35%;
+  font-size: 16px;
+  padding: 0;
+  max-width: 100%;
+  @media (min-width: $lg) {
+    max-width: 35%;
+  }
 }
 
 .point_date {
   opacity: 0.5;
-  font-size: 30px;
+  font-size: 20px;
   padding: 0;
 
+  @media (min-width: $lg) {
+    font-size: 30px;    
+  }
 }
 
 .finish__point {
   color: $secondary;
   font-size: 16px;
   padding: 0;
-  max-width: 35%;
+  max-width: 100%;
+  @media (min-width: $lg) {
+    max-width: 35%;
+  }
 }
 
 .location__point {
   padding: 0;
-  font-size: 14px;
+  font-size: 12px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
+  @media (min-width: $lg) {
+    font-size: 14px;
+  }
 }
 
 .top_info__wrapper {
